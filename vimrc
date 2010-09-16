@@ -49,3 +49,6 @@ filetype plugin on
 autocmd BufReadPre *.doc set ro "Word documents can be read using antiword
 autocmd BufReadPre *.doc set hlsearch!
 autocmd BufReadPost *.doc %!antiword "%"
+
+
+map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR> " Easy switch between .h and .cpp files - only works in same dir
