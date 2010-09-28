@@ -52,3 +52,8 @@ autocmd BufReadPost *.doc %!antiword "%"
 
 
 map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR> " Easy switch between .h and .cpp files - only works in same dir
+
+set expandtab  "inserts space characters whenever the tab key is pressed
+set tabstop=4  " number of space characters inserted when tab key is pressed
+set shiftwidth=4 "number of space characters inserted for indentation
+
