@@ -41,6 +41,7 @@ set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
+set hlsearch            " Highlight search results
 set nocompatible
 filetype on
 filetype indent on
