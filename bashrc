@@ -74,3 +74,4 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 export PATH=$PATH:/var/lib/gems/1.8/bin/:/opt/jruby/bin
+export EDITOR=/usr/bin/vim
