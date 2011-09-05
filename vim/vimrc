@@ -59,3 +59,5 @@ set expandtab  "inserts space characters whenever the tab key is pressed
 set tabstop=4  " number of space characters inserted when tab key is pressed
 set shiftwidth=4 "number of space characters inserted for indentation
 
+
+set tags=tags;/

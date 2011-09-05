@@ -80,5 +80,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export PATH=$PATH:/var/lib/gems/1.8/bin/:/opt/jruby/bin
+# make homebrew win
+export PATH=/usr/local/bin:$PATH:/var/lib/gems/1.8/bin/
 export EDITOR=/usr/bin/vim
