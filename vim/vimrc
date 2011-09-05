@@ -1,4 +1,50 @@
 call pathogen#infect()
+
+set nocompatible
+syntax enable
+colorscheme evening
+
+filetype on
+filetype indent on
+filetype plugin on
+
+set showcmd		    " Show (partial) command in status line.
+set showmatch		" Show matching brackets.
+set ignorecase		" Do case insensitive matching
+set smartcase		" Do smart case matching
+set incsearch		" Incremental search
+set hlsearch            " Highlight search results
+
+set expandtab  "inserts space characters whenever the tab key is pressed
+set tabstop=4  " number of space characters inserted when tab key is pressed
+set shiftwidth=4 "number of space characters inserted for indentation
+
+"set list listchars=tab:\ \ ,trail:·
+
+"Remember last location in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
+"Easy timestamp
+map T a<C-R>=strftime("%c")<CR><Esc>
+
+"Some conveniences when working with split windows
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_ 
+
+autocmd BufReadPre *.doc set ro "Word documents can be read using antiword
+autocmd BufReadPre *.doc set hlsearch!
+autocmd BufReadPost *.doc %!antiword "%"
+
+" Easy switch between .h and .cpp files - only works in same dir
+map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR> 
+
+" CTags
+" map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+set tags=tags;/
+
 augroup encrypted
     au!
     autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
@@ -28,36 +74,3 @@ augroup CPT
   au BufWritePost *.cpt     set nobin
 augroup END
 
-map T a<C-R>=strftime("%c")<CR><Esc>
-syntax enable
-colorscheme evening
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_ 
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
-endif
-set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set ignorecase		" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set hlsearch            " Highlight search results
-set nocompatible
-filetype on
-filetype indent on
-filetype plugin on
-
-autocmd BufReadPre *.doc set ro "Word documents can be read using antiword
-autocmd BufReadPre *.doc set hlsearch!
-autocmd BufReadPost *.doc %!antiword "%"
-
-
-map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR> " Easy switch between .h and .cpp files - only works in same dir
-
-set expandtab  "inserts space characters whenever the tab key is pressed
-set tabstop=4  " number of space characters inserted when tab key is pressed
-set shiftwidth=4 "number of space characters inserted for indentation
-
-
-set tags=tags;/
