@@ -1,3 +1,4 @@
+call pathogen#infect()
 augroup encrypted
     au!
     autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
