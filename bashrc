@@ -5,6 +5,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+_os="$(uname -s)"
+
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
@@ -53,13 +55,17 @@ esac
 #    . ~/.bash_aliases
 #fi
 
-# enable color support of ls and also add handy aliases
+# Colorize ls by default
 if [ "$TERM" != "dumb" ]; then
-#    eval "`dircolors -b`"
-    export CLICOLOR=1
-#    alias ls='ls --color=auto'
-    #alias dir='ls --color=auto --format=vertical'
-    #alias vdir='ls --color=auto --format=long'
+    case "$_os" in
+        Darwin)
+             alias ls="ls -G"
+        ;;
+        Linux)
+             eval "`dircolors -b`"
+             alias ls='ls --color=auto'
+        ;;
+    esac
 fi
 
 # some more ls aliases
