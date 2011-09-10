@@ -80,6 +80,17 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
+
+# Setup vitualenvwrapper, if it exists
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/devel
+    source /usr/local/bin/virtualenvwrapper.sh
+    
+fi
+
+
+
 # make homebrew win
 export PATH=/usr/local/bin:$PATH:/var/lib/gems/1.8/bin/
 export EDITOR=/usr/bin/vim
