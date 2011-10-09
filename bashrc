@@ -94,3 +94,7 @@ fi
 # make homebrew win
 export PATH=/usr/local/bin:$PATH:/var/lib/gems/1.8/bin/
 export EDITOR=/usr/bin/vim
+
+if [ -f $HOME/.bashrc.local ]; then
+    source $HOME/.bashrc.local
+fi
