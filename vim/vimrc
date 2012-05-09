@@ -20,6 +20,7 @@ set tabstop=4  " number of space characters inserted when tab key is pressed
 set shiftwidth=4 "number of space characters inserted for indentation
 
 "set list listchars=tab:\ \ ,trail:·
+set wildignore=*.pyc
 
 "Remember last location in file
 if has("autocmd")
