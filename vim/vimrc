@@ -46,6 +46,11 @@ map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 " map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 set tags=tags;/
 
+" Ack the current word
+map <Leader>a :Ack <cword><CR>
+" close the quickfix list
+map <Leader>c :ccl<CR>
+
 augroup encrypted
     au!
     autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
