@@ -51,6 +51,9 @@ map <Leader>a :Ack <cword><CR>
 " close the quickfix list
 map <Leader>c :ccl<CR>
 
+" command t flush
+map <Leader>ft :CommandTFlush<CR>
+
 augroup encrypted
     au!
     autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
