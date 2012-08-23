@@ -52,10 +52,18 @@ set tags=tags;/
 " Ack the current word
 map <Leader>a :Ack <cword><CR>
 " close the quickfix list
-map <Leader>c :ccl<CR>
+map <Leader>cl :ccl<CR>
+" copy the current filename to the clipboard
+map <Leader>cf :let @*=expand("%")<CR>
+" copy the current absolute path to the clipboard
+map <Leader>cp :let @*=expand("%:p")<CR>
 
 " command t flush
 map <Leader>ft :CommandTFlush<CR>
+
+" command t flush
+map <Leader>ft :CommandTFlush<CR>
+
 
 augroup encrypted
     au!

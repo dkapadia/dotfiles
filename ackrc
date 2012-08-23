@@ -3,3 +3,6 @@ js=.coffee
 
 --type-add
 js=.eco
+
+--type-add
+css=.scss
