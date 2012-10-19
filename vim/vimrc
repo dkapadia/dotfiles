@@ -1,6 +1,7 @@
 call pathogen#infect()
 
 set nocompatible
+set clipboard=unnamed
 syntax enable
 colorscheme evening
 
@@ -63,7 +64,6 @@ map <Leader>ft :CommandTFlush<CR>
 
 " command t flush
 map <Leader>ft :CommandTFlush<CR>
-
 
 augroup encrypted
     au!
