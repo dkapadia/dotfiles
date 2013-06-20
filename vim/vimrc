@@ -15,10 +15,14 @@ set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 set hlsearch            " Highlight search results
+set number
+hi LineNr ctermfg=darkgray
+
+
 
 set expandtab  "inserts space characters whenever the tab key is pressed
-set tabstop=4  " number of space characters inserted when tab key is pressed
-set shiftwidth=4 "number of space characters inserted for indentation
+set tabstop=2  " number of space characters inserted when tab key is pressed
+set shiftwidth=2 "number of space characters inserted for indentation
 
 "set list listchars=tab:\ \ ,trail:·
 set wildignore=*.pyc
@@ -33,8 +37,10 @@ endif
 map T a<C-R>=strftime("%c")<CR><Esc>
 
 "Some conveniences when working with split windows
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_ 
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
 
 autocmd BufReadPre *.doc set ro "Word documents can be read using antiword
 autocmd BufReadPre *.doc set hlsearch!
