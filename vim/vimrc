@@ -3,7 +3,6 @@ call pathogen#infect()
 set nocompatible
 set clipboard=unnamed
 syntax enable
-colorscheme evening
 
 filetype on
 filetype indent on
