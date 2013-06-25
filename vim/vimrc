@@ -70,6 +70,9 @@ map <Leader>ft :CommandTFlush<CR>
 " command t flush
 map <Leader>ft :CommandTFlush<CR>
 
+" run something in sql
+map <Leader>q :w !psql -h localhost development \| less<CR>
+
 augroup encrypted
     au!
     autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
