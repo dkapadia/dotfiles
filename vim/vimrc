@@ -118,3 +118,4 @@ augroup CPT
   au BufWritePost *.cpt     set nobin
 augroup END
 
+let g:vimrubocop_config = '.rubocop.yml'
