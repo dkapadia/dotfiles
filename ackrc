@@ -6,3 +6,7 @@ js=.eco
 
 --type-add
 css=.scss
+
+--ignore-dir=log
+
+--ignore-dir=db/static_content

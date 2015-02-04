@@ -95,8 +95,16 @@ fi
 
 
 # make homebrew win
-export PATH=/usr/local/bin:$PATH:/var/lib/gems/1.8/bin/
 export EDITOR=/usr/bin/vim
+export DENT_DEBUG_ASSETS=false
+
+# create an alias for postgres
+alias start_pg='pg_ctl start -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log'
+alias restore_pg='pg_restore --verbose --clean --no-acl --no-owner -d development'
+
+# set up rbenv
+eval "$(rbenv init -)"
+export PATH=./bin:/usr/local/bin:$PATH
 
 if [ -f $HOME/.bashrc.local ]; then
     source $HOME/.bashrc.local
