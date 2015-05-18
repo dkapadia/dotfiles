@@ -109,3 +109,7 @@ export PATH=./bin:/usr/local/bin:$PATH
 if [ -f $HOME/.bashrc.local ]; then
     source $HOME/.bashrc.local
 fi
+
+# setup git autocomplete
+
+source ~/dotfiles/scripts/git-completion.bash
