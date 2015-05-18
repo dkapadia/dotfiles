@@ -10,3 +10,7 @@ css=.scss
 --ignore-dir=log
 
 --ignore-dir=db/static_content
+
+--ignore-dir=tmp
+
+--ignore-dir=.git
