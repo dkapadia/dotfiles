@@ -24,7 +24,7 @@ set tabstop=2  " number of space characters inserted when tab key is pressed
 set shiftwidth=2 "number of space characters inserted for indentation
 
 "set list listchars=tab:\ \ ,trail:·
-set wildignore=*.pyc,*/tmp/*,*/node_modules/*
+set wildignore=*.pyc,*/tmp/*,*/node_modules/*,*/public/*
 
 "highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
