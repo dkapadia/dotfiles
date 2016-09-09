@@ -75,6 +75,7 @@ fi
 
 alias be='bundle exec'
 alias br='bundle exec rspec'
+alias vi='vim'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -84,23 +85,8 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 
-# Setup vitualenvwrapper, if it exists
-#if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-#    export WORKON_HOME=$HOME/.virtualenvs
-#    export PROJECT_HOME=$HOME/devel
-#    source /usr/local/bin/virtualenvwrapper.sh
-#    
-#fi
-
-
-
 # make homebrew win
 export EDITOR=/usr/bin/vim
-export DENT_DEBUG_ASSETS=false
-
-# create an alias for postgres
-alias start_pg='pg_ctl start -D /usr/local/var/postgres/ -l /usr/local/var/postgres/server.log'
-alias restore_pg='pg_restore --verbose --clean --no-acl --no-owner -d development'
 
 # set up rbenv
 eval "$(rbenv init -)"
@@ -110,6 +96,16 @@ if [ -f $HOME/.bashrc.local ]; then
     source $HOME/.bashrc.local
 fi
 
+# setup virtual env
+
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+
 # setup git autocomplete
 
 source ~/dotfiles/scripts/git-completion.bash
+
+# include khan depenencies 
+
+if [ -s ~/.bashrc.khan ]; then
+  source ~/.bashrc.khan
+fi

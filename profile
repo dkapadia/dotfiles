@@ -15,7 +15,7 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d ~/bin ] ; then
-    PATH=/var/lib/gems/1.8/bin/:~/bin:"${PATH}"
+# install khan settings
+if [ -s ~/.profile.khan ]; then
+  . ~/.profile.khan
 fi
