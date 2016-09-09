@@ -16,3 +16,6 @@ css=.scss
 --ignore-dir=public/assets
 
 --ignore-dir=.git
+
+--ignore-dir=intl/translations
+--ignore-dir=genfiles/
