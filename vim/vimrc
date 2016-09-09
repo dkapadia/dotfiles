@@ -24,7 +24,7 @@ set tabstop=2  " number of space characters inserted when tab key is pressed
 set shiftwidth=2 "number of space characters inserted for indentation
 
 "set list listchars=tab:\ \ ,trail:·
-set wildignore=*.pyc,*/tmp/*,*/node_modules/*,*/public/*
+set wildignore=*.pyc,*/tmp/*,*/node_modules/*,*/public/*,*/genfiles/*,*/third_party/*,*/translations/*,*.class
 
 "highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -54,6 +54,8 @@ autocmd BufReadPre *.doc set hlsearch!
 autocmd BufReadPost *.doc %!antiword "%"
 
 au filetype ruby set ts=2 sw=2
+au filetype python set ts=4 expandtab shiftwidth=4 softtabstop=4
+
 au BufReadPre,BufNewFile *.coffee set ts=2 sw=2
 
 " Easy switch between .h and .cpp files - only works in same dir
@@ -67,10 +69,10 @@ set tags=tags;/
 " Ack the current word
 map <Leader>a :Ack <cword><CR>
 " setup a command to search for any word
-map <Leader>s :Ack! 
+map <Leader>s :Ack!
 
 " close the quickfix list
-map <Leader>cl :ccl<CR>
+noremap <Leader>cl :ccl \| lcl<CR>
 " copy the current filename to the clipboard
 map <Leader>cf :let @*=expand("%")<CR>
 " copy the current absolute path to the clipboard
@@ -86,8 +88,6 @@ map <Leader>q :w !psql -h localhost development \| less<CR>
 
 " look up word under cursor in dash
 nmap <Leader>d <Plug>DashSearch
-" setup a command to search for anything in dash
-nmap <Leader>l :Dash!  
 
 augroup encrypted
     au!
