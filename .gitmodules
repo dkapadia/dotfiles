@@ -34,3 +34,6 @@
 [submodule "vim/bundle/vim-rubocop"]
 	path = vim/bundle/vim-rubocop
 	url = git@github.com:ngmy/vim-rubocop.git
+[submodule "vim/bundle/vim-jinja"]
+	path = vim/bundle/vim-jinja
+	url = https://github.com/lepture/vim-jinja.git
