@@ -24,7 +24,10 @@ set tabstop=2  " number of space characters inserted when tab key is pressed
 set shiftwidth=2 "number of space characters inserted for indentation
 
 "set list listchars=tab:\ \ ,trail:·
-set wildignore=*.pyc,*/tmp/*,*/node_modules/*,*/public/*,*/genfiles/*,*/third_party/*,*/translations/*,*.class
+set wildignore=*.pyc,*/tmp/*,*/node_modules/*,*/public/*,*/genfiles/*,*/third_party/*,*/translations/*,*.class,tests_for*.json,*.pickle,request_log_data.json,*/content/backfill_data/*
+
+" disable includes when doing autocomplete
+set complete=.,w,b,u,t
 
 "highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -118,4 +121,10 @@ augroup CPT
   au BufWritePost *.cpt     set nobin
 augroup END
 
-let g:vimrubocop_config = '.rubocop.yml'
+"let g:vimrubocop_config = '.rubocop.yml'
+
+" hide pyc files from listing
+let g:netrw_list_hide= '.*\.swp$,.*\.pyc,.*sync_snapshot.*'
+
+let g:yankring_clipboard_monitor=0
+

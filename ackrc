@@ -19,3 +19,7 @@ css=.scss
 
 --ignore-dir=intl/translations
 --ignore-dir=genfiles/
+--ignore-file=match:tests_for.json
+--ignore-file=match:tests_for_testdata.json
+--ignore-dir=content/backfill_data
+--ignore-dir=prediction/test_data
