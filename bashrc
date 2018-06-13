@@ -102,6 +102,8 @@ source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 # setup git autocomplete
 
+# We use a lot of tags and branches, so this is slow
+export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 source ~/dotfiles/scripts/git-completion.bash
 
 # include khan depenencies 

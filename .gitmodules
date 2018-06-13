@@ -37,3 +37,6 @@
 [submodule "vim/bundle/vim-jinja"]
 	path = vim/bundle/vim-jinja
 	url = https://github.com/lepture/vim-jinja.git
+[submodule "vim/bundle/vim-tmux-navigator"]
+	path = vim/bundle/vim-tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git
