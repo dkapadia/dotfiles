@@ -24,7 +24,7 @@ set tabstop=2  " number of space characters inserted when tab key is pressed
 set shiftwidth=2 "number of space characters inserted for indentation
 
 "set list listchars=tab:\ \ ,trail:·
-set wildignore=*.pyc,*/tmp/*,*/node_modules/*,*/public/*,*/genfiles/*,*/third_party/*,*/translations/*,*.class,tests_for*.json,*.pickle,request_log_data.json,*/content/backfill_data/*
+set wildignore=*.pyc,*/tmp/*,*/node_modules/*,*/public/*,*/genfiles/*,*/third_party/*,*/translations/*,*.class,tests_for*.json,*.pickle,request_log_data.json,*/content/backfill_data/*,*/build/kake/*-testfiles/*,
 
 " disable includes when doing autocomplete
 set complete=.,w,b,u,t
