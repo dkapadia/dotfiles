@@ -69,10 +69,13 @@ map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
 set tags=tags;/
 
 
-" Ack the current word
-map <Leader>a :Ack <cword><CR>
+" Git grep the current word
+map <Leader>a :Ggrep <cword><CR>
 " setup a command to search for any word
-map <Leader>s :Ack!
+map <Leader>s :Ggrep 
+" auto open the quick fix window after a grep
+autocmd QuickFixCmdPost *grep* cwindow
+
 
 " close the quickfix list
 noremap <Leader>cl :ccl \| lcl<CR>
@@ -142,4 +145,6 @@ command VSPT VSplitTest
 command SplitTest call TestFor("split")
 command SPT SplitTest
 
+
+set makeprg=git\ diff\ --name-status\ HEAD^\ \\\|grep\ -v\ '^D.*'\ \\\|cut\ -f\ 2\ \\\|xargs\ ka-lint
 
