@@ -116,6 +116,15 @@ command VSPT VSplitTest
 command SplitTest call TestFor("split")
 command SPT SplitTest
 
-
 set makeprg=git\ diff\ --name-status\ HEAD^\ \\\|grep\ -v\ '^D.*'\ \\\|cut\ -f\ 2\ \\\|xargs\ ka-lint
+
+" Golang setup
+" Enable '.' autocompletion in go
+"au filetype go inoremap <buffer> . .<C-x><C-o>
+let g:go_fmt_command = "goimports"
+
+autocmd FileType *
+	\ if &omnifunc != '' |
+	\   call SuperTabChain(&omnifunc, "<c-p>") |
+	\ endif
 
