@@ -2,8 +2,15 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# include khan depenencies 
+
+if [ -s ~/.bashrc.khan ]; then
+  source ~/.bashrc.khan
+fi
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+
 
 _os="$(uname -s)"
 
@@ -25,26 +32,27 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-xterm-color)
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    ;;
-*)
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    ;;
-esac
+#case "$TERM" in
+#xterm-color)
+#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#    ;;
+#*)
+#    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+#    ;;
+#esac
 
 # Comment in the above and uncomment this below for a color prompt
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-    ;;
-*)
-    ;;
-esac
+#case "$TERM" in
+#xterm*|rxvt*)
+#    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+#    ;;
+#*)
+#    ;;
+#esac
+#
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -54,6 +62,7 @@ esac
 #if [ -f ~/.bash_aliases ]; then
 #    . ~/.bash_aliases
 #fi
+
 
 # Colorize ls by default
 if [ "$TERM" != "dumb" ]; then
@@ -67,6 +76,7 @@ if [ "$TERM" != "dumb" ]; then
         ;;
     esac
 fi
+
 
 # some more ls aliases
 #alias ll='ls -l'
@@ -90,7 +100,6 @@ export EDITOR=/usr/bin/vim
 
 # set up rbenv
 eval "$(rbenv init -)"
-export PATH=./bin:/usr/local/bin:$PATH
 
 if [ -f $HOME/.bashrc.local ]; then
     source $HOME/.bashrc.local
@@ -98,7 +107,7 @@ fi
 
 # setup virtual env
 
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+#source /usr/local/bin/virtualenvwrapper_lazy.sh
 
 # setup git autocomplete
 
@@ -106,8 +115,4 @@ source /usr/local/bin/virtualenvwrapper_lazy.sh
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 source ~/dotfiles/scripts/git-completion.bash
 
-# include khan depenencies 
-
-if [ -s ~/.bashrc.khan ]; then
-  source ~/.bashrc.khan
-fi
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
