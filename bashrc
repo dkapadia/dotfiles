@@ -96,7 +96,7 @@ fi
 
 
 # make homebrew win
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/bin/vim
 
 # set up rbenv
 eval "$(rbenv init -)"

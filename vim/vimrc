@@ -98,35 +98,6 @@ map <Leader>q :w !psql -h localhost development \| less<CR>
 " look up word under cursor in dash
 nmap <Leader>d <Plug>DashSearch
 
-augroup encrypted
-    au!
-    autocmd BufReadPre,FileReadPre      *.gpg set viminfo=
-    autocmd BufReadPre,FileReadPre      *.gpg set noswapfile
-    autocmd BufReadPre,FileReadPre      *.gpg set bin
-    autocmd BufReadPre,FileReadPre      *.gpg let ch_save = &ch|set ch=2
-    autocmd BufReadPost,FileReadPost    *.gpg '[,']!gpg --decrypt 2> /dev/null
-    autocmd BufReadPost,FileReadPost    *.gpg set nobin
-    autocmd BufReadPost,FileReadPost    *.gpg let &ch = ch_save|unlet ch_save
-    autocmd BufReadPost,FileReadPost    *.gpg execute ":doautocmd BufReadPost " . expand("%:r")
-    autocmd BufWritePre,FileWritePre    *.gpg   '[,']!gpg --default-recipient-self -ae 2>/dev/null
-    autocmd BufWritePost,FileWritePost    *.gpg   u
-augroup END
-
-augroup CPT
-  au!
-  au BufReadPre		 	*.cpt       set bin
-  au BufReadPre,BufNewFile 	*.cpt       set viminfo=
-  au BufReadPre,BufNewFile 	*.cpt       set noswapfile
-  au BufReadPost,BufNewFile 	*.cpt      let $vimpass = inputsecret("Password: ")
-  au BufReadPost 		*.cpt      silent '[,']!ccrypt -cb -E vimpass
-  au BufReadPost	 	*.cpt      set nobin
-
-  au BufWritePre *.cpt      set bin
-  au BufWritePre *.cpt      '[,']!ccrypt -e -E vimpass
-  au BufWritePost *.cpt     u
-  au BufWritePost *.cpt     set nobin
-augroup END
-
 "let g:vimrubocop_config = '.rubocop.yml'
 
 " hide pyc files from listing
