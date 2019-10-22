@@ -116,3 +116,5 @@ export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 source ~/dotfiles/scripts/git-completion.bash
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

@@ -123,6 +123,8 @@ set makeprg=git\ diff\ --name-status\ HEAD^\ \\\|grep\ -v\ '^D.*'\ \\\|cut\ -f\ 
 "au filetype go inoremap <buffer> . .<C-x><C-o>
 let g:go_fmt_command = "goimports"
 
+au filetype go set textwidth=72
+
 autocmd FileType *
 	\ if &omnifunc != '' |
 	\   call SuperTabChain(&omnifunc, "<c-p>") |
