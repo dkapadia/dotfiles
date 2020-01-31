@@ -52,27 +52,40 @@ map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
-autocmd BufReadPre *.doc set ro "Word documents can be read using antiword
-autocmd BufReadPre *.doc set hlsearch!
-autocmd BufReadPost *.doc %!antiword "%"
+" ALE -- turn on fixers for js code
+let g:ale_linters = {}  " defined below
+let g:ale_fixers = {}   " defined below
 
+" Ruby
 au filetype ruby set ts=2 sw=2
+
+" Python
 au filetype python set ts=4 expandtab shiftwidth=4 softtabstop=4
 
+" CoffeeScript
 au BufReadPre,BufNewFile *.coffee set ts=2 sw=2
 
-" Easy switch between .h and .cpp files - only works in same dir
-map <F4> :e %:p:s,.h$,.X123X,:s,.cpp$,.h,:s,.X123X$,.cpp,<CR>
+" JS / TS
 
-" CTags
-" map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-set tags=tags;/
+au BufNewFile,BufReadPost *.ts set filetype=javascript
+
+au filetype javascript let g:ale_fix_on_save = 1
+let g:ale_fixers.javascript = ['eslint']
+au BufRead,BufNewFile */khan/webapp* let b:ale_javascript_eslint_executable = $HOME."/khan/devtools/khan-linter/node_modules/.bin/eslint"
+au BufRead,BufNewFile */khan/webapp* let b:ale_javascript_eslint_use_global = 1
+au BufRead,BufNewFile */src/apollo* let b:ale_fixers = {'javascript': ['prettier']}
+
+" Disable ale for third party code
+let g:ale_pattern_options = {'.*/node_modules/.*': {'ale_enabled': 0}}
+
+
+au filetype javascript nnoremap <buffer> <C-]> :ALEGoToDefinition<CR>
 
 
 " Git grep the current word
 map <Leader>a :Ggrep <cword><CR>
 " setup a command to search for any word
-map <Leader>s :Ggrep 
+map <Leader>s :Ggrep
 " auto open the quick fix window after a grep
 autocmd QuickFixCmdPost *grep* cwindow
 
