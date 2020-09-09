@@ -1,4 +1,5 @@
 call pathogen#infect()
+call pathogen#helptags()
 
 set nocompatible
 set clipboard=unnamed
@@ -70,10 +71,14 @@ au BufReadPre,BufNewFile *.coffee set ts=2 sw=2
 au BufNewFile,BufReadPost *.ts set filetype=javascript
 
 au filetype javascript let g:ale_fix_on_save = 1
+au filetype javascript set signcolumn=yes
 let g:ale_fixers.javascript = ['eslint']
+let g:ale_linters.javascript = ['flow-language-server']
 au BufRead,BufNewFile */khan/webapp* let b:ale_javascript_eslint_executable = $HOME."/khan/devtools/khan-linter/node_modules/.bin/eslint"
 au BufRead,BufNewFile */khan/webapp* let b:ale_javascript_eslint_use_global = 1
 au BufRead,BufNewFile */src/apollo* let b:ale_fixers = {'javascript': ['prettier']}
+
+
 
 " Disable ale for third party code
 let g:ale_pattern_options = {'.*/node_modules/.*': {'ale_enabled': 0}}
@@ -135,8 +140,10 @@ set makeprg=git\ diff\ --name-status\ HEAD^\ \\\|grep\ -v\ '^D.*'\ \\\|cut\ -f\ 
 " Enable '.' autocompletion in go
 "au filetype go inoremap <buffer> . .<C-x><C-o>
 let g:go_fmt_command = "goimports"
+let g:go_rename_command = 'gopls'
 
 au filetype go set textwidth=72
+au filetype javascript set textwidth=72
 
 autocmd FileType *
 	\ if &omnifunc != '' |
