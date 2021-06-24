@@ -139,8 +139,12 @@ set makeprg=git\ diff\ --name-status\ HEAD^\ \\\|grep\ -v\ '^D.*'\ \\\|cut\ -f\ 
 " Golang setup
 " Enable '.' autocompletion in go
 "au filetype go inoremap <buffer> . .<C-x><C-o>
-let g:go_fmt_command = "goimports"
+" TODO figure out why go imports are so slow
+"let g:go_fmt_command = "gofumports"
+let g:go_gopls_gofumpt = 1
 let g:go_rename_command = 'gopls'
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 au filetype go set textwidth=72
 au filetype javascript set textwidth=72
